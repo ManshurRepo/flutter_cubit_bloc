@@ -134,7 +134,7 @@ class _SignInPageState extends State<SignInPage> {
         //Panggil Cubit
 
         final _requestData = LoginRequestModel(
-            email: _emailController.text, password: _passwordController.text);
+            email: "eve.holt@reqres.in", password: "city");
         context.read<AuthCubit>().signInUser(_requestData);
       },
       child: const Text(
