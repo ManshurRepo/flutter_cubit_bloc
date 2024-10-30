@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit_bloc/presentation/sign_in_page.dart/sign_in_page.dart';
+import 'package:flutter_cubit_bloc/presentation/splash_screen/splash_screen.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SignInPage(),
+      home: SplashScreen(),
     );
   }
 }

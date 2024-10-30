@@ -33,15 +33,23 @@ class _SignInPageState extends State<SignInPage> {
               print("Loading");
             } else if (state is AuthError) {
               showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: const Text("error"),
-                        content: Text(state.errorMessage),
-                      ),);
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text("error"),
+                  content: Text(state.errorMessage),
+                ),
+              );
             } else if (state is AuthLoginSuccess) {
+              //save data to local
+
+              context.read<AuthCubit>().saveUserToLocal(state.dataLogin);
+           
+            } else if (state is AuthSuccess) {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => HomePage(),
+                  builder: (context) => HomePage(
+                    
+                  ),
                 ),
               );
             }
@@ -133,8 +141,8 @@ class _SignInPageState extends State<SignInPage> {
       onPressed: () {
         //Panggil Cubit
 
-        final _requestData = LoginRequestModel(
-            email: "eve.holt@reqres.in", password: "city");
+        final _requestData =
+            LoginRequestModel(email: "eve.holt@reqres.in", password: "city");
         context.read<AuthCubit>().signInUser(_requestData);
       },
       child: const Text(
