@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit_bloc/application/auth/cubit/auth_cubit.dart';
 import 'package:flutter_cubit_bloc/presentation/home_page/home_page.dart';
 import 'package:flutter_cubit_bloc/presentation/sign_in_page.dart/sign_in_page.dart';
+import 'package:flutter_cubit_bloc/presentation/user/user_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,13 +21,13 @@ class _SplashScreenState extends State<SplashScreen> {
         listener: (context, state) {
           if (state is AuthLoginSuccess) {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => HomePage()));
+                .push(MaterialPageRoute(builder: (context) => const UserPage()));
           } else if (state is AuthError) {
           Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => SignInPage()));
+                .push(MaterialPageRoute(builder: (context) => const SignInPage()));
           }
         },
-        child: Scaffold(
+        child: const Scaffold(
           body: Center(
             child: CircularProgressIndicator(),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cubit_bloc/presentation/sign_in_page.dart/sign_in_page.dart';
 import 'package:flutter_cubit_bloc/presentation/splash_screen/splash_screen.dart';
+import 'package:get/get.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
